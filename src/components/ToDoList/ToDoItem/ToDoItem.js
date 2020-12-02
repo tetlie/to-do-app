@@ -51,6 +51,7 @@ function ToDoItem(props) {
     function toggleTodoCompleteAtIndex(index) {
         const temporaryTodos = [...props.todos];
         temporaryTodos[index].isCompleted = !temporaryTodos[index].isCompleted;
+        if (temporaryTodos[index].isCompleted) {temporaryTodos.push(temporaryTodos.splice(index, 1)[0])};
         props.setTodos(temporaryTodos);
     }
 
@@ -58,7 +59,7 @@ function ToDoItem(props) {
         props.todos.map((todo, i) => (
             <div className={`todo ${todo.isCompleted && 'todo-is-completed'}`}> {/*apply class if to do is completed*/}
                 <div className={'checkbox'} onClick={() => toggleTodoCompleteAtIndex(i)}>
-                    {todo.isCompleted && (<span>&#x2714;</span>)} {/*om todo.isCompleted er "true" vises et checkmark*/}
+                    {todo.isCompleted && (<span>✓</span>)} {/*om todo.isCompleted er "true" vises et checkmark*/}
                 </div>
                 <input
                     type="text"

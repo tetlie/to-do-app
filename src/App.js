@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header/Header'
 import ToDoList from './components/ToDoList/ToDoList'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <div className="app">
       <Header />
       <ToDoList />
+      <Footer />
     </div>
   );
 }
