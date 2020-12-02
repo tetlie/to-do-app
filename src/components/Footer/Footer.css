@@ -1,8 +1,21 @@
 .Footer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
     color: rgb(110, 110, 110);
+    margin: 2rem;
   }
-  
+
+a {
+  color: rgb(23, 176, 226);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(23, 176, 226);
+}
+
+a:visited {
+  color: rgb(211, 211, 211);
+}

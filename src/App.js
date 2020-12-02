@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header/Header'
 import ToDoItem from './components/ToDoItem/ToDoItem'
 import AddNewTodo from './components/ToDoItem/AddNewTodo/AddNewTodo'
+import TaskStatus from './components/TaskStatus/TaskStatus'
 import Footer from './components/Footer/Footer'
 
 function App() {
@@ -23,20 +24,25 @@ function App() {
   ]);
 
   return (
-    <div className="app">
+    <div className="App">
       <Header />
-      <form className="todo-list">
+
+      <div className="Main">
         <AddNewTodo
-            todos={todos}
-            setTodos={setTodos}
-        />
-        <ul>
-          <ToDoItem
-            todos={todos}
-            setTodos={setTodos}
+              todos={todos}
+              setTodos={setTodos}
           />
-        </ul>
-      </form>
+        <form className="todo-list">
+          <h2>Tasks</h2>
+          <TaskStatus todos={todos}/>
+          <ul>
+            <ToDoItem
+              todos={todos}
+              setTodos={setTodos}
+            />
+          </ul>
+        </form>
+      </div>
       <Footer />
     </div>
   );

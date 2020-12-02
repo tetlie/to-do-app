@@ -22,7 +22,7 @@
     color:rgb(23, 176, 226);
   }
   
-  .checkbox, .removeBtn {
+  .checkbox, .removeBtn, .addBtn {
     width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -39,7 +39,13 @@
     border: 1px solid rgb(211, 211, 211);
   }
 
+  .addBtn {
+    margin-left: 10px;
+    border: 1px solid rgb(211, 211, 211);
+  }
+
   .removeBtn {
+    color: rgb(110, 110, 110);
     margin-left: 10px;
   }
   
@@ -58,6 +64,10 @@
   .removeBtn:hover {
     border: 1px solid rgb(226, 73, 55);
     color: rgb(226, 73, 55);
+  }
+  .addBtn:hover {
+    border: 1px solid rgb(43, 164, 37);
+    color: rgb(43, 164, 37);
   }
   
   ul {

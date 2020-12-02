@@ -25,7 +25,7 @@ function AddNewTodo(props) {
                     type="text"
                     onKeyDown={e => handleKeyDown(e)}
                 />
-                <div className={'addBtn'} onClick={(e, i) => createTodo(e, i)}><span>add</span></div>
+                <div className={'addBtn'} onClick={(e, i) => createTodo(e, i)}><span>+</span></div>
             </div>
     )
 }
