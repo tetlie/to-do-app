@@ -1,18 +1,31 @@
 .todo {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin: 1rem;
     padding: 0.5em;
     border: 1px solid rgb(211, 211, 211);
     border-radius: 0.5em;
     width: 100%;
     max-width: 500px;
+    transition: .2s ease-in-out;
+
+  }
+
+  .todo:hover {
+    transform: scale(1.01);
+    border: 2px solid rgb(211, 211, 211);
   }
 
   .todo-is-completed {
     border: 1px solid rgb(23, 176, 226);
   }
   
+  .todo-is-completed:hover {
+    transform: scale(1.01);
+    border: 2px solid rgb(23, 176, 226);
+  }
+
   .todo-is-completed .checkbox {
     color: rgb(23, 176, 226);
     border: 1px solid rgb(23, 176, 226);
@@ -45,11 +58,11 @@
   }
 
   .removeBtn {
-    color: rgb(110, 110, 110);
     margin-left: 10px;
   }
   
   .checkbox:hover {
+    transform: scale(1.1);
     border: 1px solid rgb(23, 176, 226);
   }
   
@@ -58,25 +71,34 @@
   }
 
   .checkbox-checked:hover {
+    transform: scale(1.1);
     border: 1px solid rgb(211, 211, 211)!important;
   }
 
   .removeBtn:hover {
+    transform: scale(1.1);
     border: 1px solid rgb(226, 73, 55);
     color: rgb(226, 73, 55);
   }
   .addBtn:hover {
+    transform: scale(1.1);
     border: 1px solid rgb(43, 164, 37);
     color: rgb(43, 164, 37);
   }
   
-  ul {
+  .todo-list {
     list-style: none;
     padding: 0;
+    margin: 0;
     line-height: 2rem;
-    width: 100%;
-    max-width: 500px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
   }
+
   
   input {
     border: none;

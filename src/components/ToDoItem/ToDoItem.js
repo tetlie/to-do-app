@@ -57,7 +57,7 @@ function ToDoItem(props) {
 
     return (
         props.todos.map((todo, i) => (
-            <li className={`todo ${todo.isCompleted && 'todo-is-completed'}`}> {/*apply class if to do is completed*/}
+            <div className={`todo ${todo.isCompleted && 'todo-is-completed'}`}> {/*apply class if to do is completed*/}
                 <div className={'checkbox'} onClick={() => toggleTodoCompleteAtIndex(i)}>
                     {todo.isCompleted && (<span>✓</span>)} {/*om todo.isCompleted er "true" vises et checkmark*/}
                 </div>
@@ -73,7 +73,7 @@ function ToDoItem(props) {
                     onChange={e => updateTodoAtIndex(e, i)}
                 />
                 <div className={'removeBtn'} onClick={() => removeTodoAtIndex(i)}><span>✕</span></div>
-            </li>
+            </div>
         ))
     )
 }

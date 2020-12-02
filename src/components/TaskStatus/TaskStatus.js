@@ -3,19 +3,15 @@ import './TaskStatus.css'
 
 const TaskStatus = (props) => {
 
-    const pending = () => props.todos.filter(el => {
-            let completed = el.isCompleted;
-            return completed.lenght;
-    })
+    const pending = props.todos.filter(todo => todo.isCompleted === !true)
+    const completed = props.todos.filter(todo => todo.isCompleted === true)
 
-
-    const completed = () => props.todos.length
-
+    const allCompleted = pending.length === 0;
 
     return (
-            <div className="TaskStatus">
-                <div>Pending: { pending }</div>
-                <div>Completed: { completed }</div>
+            <div className={`TaskStatus ${(allCompleted) && 'taskStatusCompleted'}`}>
+                <div>{(allCompleted) ?  `You're all caught up 🔥` : `Pending: ${pending.length}`}</div>
+                <div>Completed: {completed.length}</div>
             </div>
     )
 }

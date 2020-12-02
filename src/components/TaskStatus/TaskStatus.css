@@ -1,7 +1,16 @@
 .TaskStatus {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: center;
-        text-align: center;
+        justify-content: space-evenly;
+        margin: 1rem;
+        padding: 0.5em;
+        border: 1px solid rgb(226, 73, 55);
+        border-radius: 0.5em;
+        width: 100%;
+        max-width: 500px;
+}
+
+.taskStatusCompleted {
+        border: 1px solid lime;
 }

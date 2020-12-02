@@ -9,19 +9,8 @@ import Footer from './components/Footer/Footer'
 
 function App() {
   const [todos, setTodos] = useState([
-    {
-      content: 'press enter to create a new item',
-      isCompleted: false,
-    },
-    {
-      content: 'delete an item by deleting its content',
-      isCompleted: false,
-    },
-    {
-      content: 'click check to finish an item',
-      isCompleted: true,
-    }
-  ]);
+    ]);
+
 
   return (
     <div className="App">
@@ -32,15 +21,15 @@ function App() {
               todos={todos}
               setTodos={setTodos}
           />
-        <form className="todo-list">
+        <form className="todo-section">
           <h2>Tasks</h2>
           <TaskStatus todos={todos}/>
-          <ul>
+          <div className="todo-list">
             <ToDoItem
               todos={todos}
               setTodos={setTodos}
             />
-          </ul>
+          </div>
         </form>
       </div>
       <Footer />
