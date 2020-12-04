@@ -5,6 +5,8 @@
     justify-content: space-evenly;
     color: rgb(110, 110, 110);
     margin: 2rem;
+    bottom: 0;
+    height: 30vh;
   }
 
 a {

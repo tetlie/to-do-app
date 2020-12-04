@@ -1,10 +1,10 @@
 import React from 'react';
 import './ToDoItem.css';
 
-function ToDoItem(props) {
+const ToDoItem = (props) => {
 
     const handleKeyDown = (e, i) => {
-        if (e.key === 'Enter') { // sjekk om return/enter-knappen blir trykket
+        if (e.key === 'Enter' && props.todos[i].content !== '') { // sjekk om return/enter-knappen blir trykket
             createTodoAtIndex(e, i); // kall funksjonen som legger til et nytt todo-objekt
         } if (e.key === 'Backspace' && props.todos[i].content === '') { // sjekk om delete-knappen blir trykket
             e.preventDefault();
@@ -29,13 +29,10 @@ function ToDoItem(props) {
     }
 
     const removeTodoAtIndex = (i) => {
-        if (i === 0 && props.todos.length === 1);
         props.setTodos(todos => todos.slice(0, i).concat(todos.slice(i + 1, todos.length))); // concat combines two arrays
         setTimeout(() => {
-            if (i === 0) {
-                document.forms[0].elements[i].focus()
-            } else {
-                document.forms[0].elements[i - 1].focus()
+            if (props.todos.length > 1) {
+                (i === 0) ? document.forms[0].elements[i].focus() : document.forms[0].elements[i - 1].focus()
             }
         }, 0);
     }
@@ -48,23 +45,25 @@ function ToDoItem(props) {
         props.setTodos(newTodos); // oppdater todo-arrayet i state med den nye kopien
     }
 
-    const toggleTodoCompleteAtIndex = (index) => {
+    const toggleTodoCompleteAtIndex = (i) => {
         const temporaryTodos = [...props.todos];
-        temporaryTodos[index].isCompleted = !temporaryTodos[index].isCompleted;
-        if (temporaryTodos[index].isCompleted) {temporaryTodos.push(temporaryTodos.splice(index, 1)[0])};
+        temporaryTodos[i].isCompleted = !temporaryTodos[i].isCompleted;
+        if (temporaryTodos[i].isCompleted) {
+            temporaryTodos.push(temporaryTodos.splice(i, 1)[0])
+        };
         props.setTodos(temporaryTodos);
     }
 
     return (
         props.todos.map((todo, i) => (
-            <div className={`todo ${todo.isCompleted && 'todo-is-completed'}`}> {/*apply class if to do is completed*/}
-                <div className={'checkbox'} onClick={() => toggleTodoCompleteAtIndex(i)}>
+            <li className={`todo ${todo.isCompleted && 'todo-is-completed'}`}> {/*apply class if to do is completed*/}
+                <div type="checkbox" className={'checkbox'} onClick={() => toggleTodoCompleteAtIndex(i)}>
                     {todo.isCompleted && (<span>✓</span>)} {/*om todo.isCompleted er "true" vises et checkmark*/}
                 </div>
                 <input
                     value={todo.content}
                     type="text"
-                    placeholder="add new todo"
+                    placeholder="new todo"
                     // call a function when a key is pressed in the input-field, send input event and todo index
                     // the funciton will check if "enter is pressed" and calls another function that creates a new todo-object in state
                     onKeyDown={e => handleKeyDown(e, i)}
@@ -73,7 +72,7 @@ function ToDoItem(props) {
                     onChange={e => updateTodoAtIndex(e, i)}
                 />
                 <div className={'removeBtn'} onClick={() => removeTodoAtIndex(i)}><span>✕</span></div>
-            </div>
+            </li>
         ))
     )
 }

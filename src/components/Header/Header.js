@@ -2,10 +2,9 @@ import React from 'react';
 // import logo from './logo.svg';
 import './Header.css';
 
-function Header() {
+const Header = () => {
   return (
-      <div className="header">
-        {/* <img src={logo} className="logo" alt="logo" /> */}
+      <div className="Header">
         <h1>What will you do today?</h1>
       </div>
   );
