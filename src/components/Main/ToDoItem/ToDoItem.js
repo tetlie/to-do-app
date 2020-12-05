@@ -22,17 +22,18 @@ const ToDoItem = (props) => {
 
     return (
         props.todos.map((todo, i) => (
-            <li className={`todo ${todo.isCompleted && 'todo-is-completed'}`}> {/*apply class if to do is completed*/}
+            <li className={`todo ${todo.isCompleted && 'todo-is-completed'} ${todo.isImportant && 'todo-is-important'}`}> {/*apply class if to do is completed*/}
                 <div type="checkbox" className={'checkbox'} onClick={() => props.toggleIsCompleted(i)}>
                     {todo.isCompleted && (<span>✓</span>)}
                 </div>
                 <input
                     value={todo.content}
                     type="text"
-                    placeholder="new todo"
+                    placeholder="new to-do"
                     onKeyDown={e => handleKeyDown(e, i)}
                     onChange={e => props.updateTodoAtIndex(e, i)}
                 />
+                <div className={'importantBtn'} onClick={() => props.toggleIsImportant(i)}><span>!</span></div>
                 <div className={'removeBtn'} onClick={() => props.removeTodoAtIndex(i)}><span>✕</span></div>
             </li>
         ))

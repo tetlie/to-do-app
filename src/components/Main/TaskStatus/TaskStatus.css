@@ -5,12 +5,12 @@
         justify-content: space-evenly;
         margin: 1rem;
         padding: 0.5em;
-        border: 1px solid rgb(226, 73, 55);
+        border: 1.5px solid rgb(226, 73, 55);
         border-radius: 0.5em;
         width: 100%;
         max-width: 500px;
 }
 
 .taskStatusCompleted {
-        border: 1px solid lime;
+        border: 1.5px solid rgb(43, 164, 37);
 }

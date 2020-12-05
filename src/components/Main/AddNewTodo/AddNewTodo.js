@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const AddNewTodo = (props) => {
     return (
         <div className="AddNewTodo todo">
             <input
-                placeholder="add new todo"
+                placeholder="add new to-do"
                 value={props.input}
                 type="text"
                 onKeyDown={e => e.key === 'Enter' && props.input ? props.createTodoAtIndex() : null}
                 onChange={e => props.setInput(e.target.value)}
             />
-            <button
+            <div
                 className={'addBtn'}
                 onClick={props.input ? props.createTodoAtIndex : null}>
                 <span>＋</span>
-            </button>
+            </div>
         </div>
     )
 }

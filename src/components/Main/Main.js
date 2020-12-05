@@ -16,6 +16,7 @@ const Main = () => {
     newTodos.splice(i + 1, 0, {
       content: input ? input : '',
       isCompleted: false,
+      isImportant: false,
     });
     setTodos(newTodos);
     setInput('');
@@ -31,6 +32,15 @@ const Main = () => {
     setTodos(newTodos);
   }
 
+  const toggleIsImportant = (i) => {
+    const temporaryTodos = [...todos];
+    temporaryTodos[i].isImportant = !temporaryTodos[i].isImportant;
+    if (temporaryTodos[i].isImportant && !temporaryTodos[i].isCompleted) {
+        temporaryTodos.unshift(temporaryTodos.splice(i, 1)[0])
+    };
+    setTodos(temporaryTodos);
+  }
+
   const toggleIsCompleted = (i) => {
     const temporaryTodos = [...todos];
     temporaryTodos[i].isCompleted = !temporaryTodos[i].isCompleted;
@@ -38,7 +48,7 @@ const Main = () => {
         temporaryTodos.push(temporaryTodos.splice(i, 1)[0])
     };
     setTodos(temporaryTodos);
-}
+  }
 
   return (
     <div className="Main">
@@ -60,6 +70,7 @@ const Main = () => {
             removeTodoAtIndex={removeTodoAtIndex}
             updateTodoAtIndex={updateTodoAtIndex}
             toggleIsCompleted={toggleIsCompleted}
+            toggleIsImportant={toggleIsImportant}
           />
         </ul>
       </form>
