@@ -4,16 +4,17 @@ import './ToDoItem.css';
 const ToDoItem = (props) => {
 
   const handleKeyDown = (e, i) => {
+
     if (e.key === 'Enter' && props.todos[i].content !== '') {
       props.createTodoAtIndex(i);
       setTimeout(() => { // flytt fokus til linjen under
         document.forms[0].elements[i + 1].focus();
       }, 0);
+
     } if (e.key === 'Backspace' && props.todos[i].content === '') {
-      e.preventDefault();
       props.removeTodoAtIndex(i);
-      setTimeout(() => {
-        if (props.todos.length > 1) { // flytt fokus til linjen over
+      setTimeout(() => { // flytt fokus til linjen over
+        if (props.todos.length > 1) { // om det er flere enn ett item
           (i === 0) ? document.forms[0].elements[i].focus() : document.forms[0].elements[i - 1].focus()
         }
       }, 0);
@@ -38,11 +39,11 @@ const ToDoItem = (props) => {
         </div>
 
         <input
-          value={todo.content}
           type="text"
           placeholder="new to-do"
+          value={todo.content} // double-bind to state
+          onChange={e => props.updateTodoAtIndex(e, i)} // double-bind to state
           onKeyDown={e => handleKeyDown(e, i)}
-          onChange={e => props.updateTodoAtIndex(e, i)}
         />
 
         <div

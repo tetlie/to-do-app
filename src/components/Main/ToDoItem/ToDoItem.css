@@ -6,7 +6,7 @@
   justify-content: center;
   margin: 1rem;
   padding: 0.5em;
-  border: 1.5px solid rgb(211, 211, 211);
+  border: 2px solid rgb(211, 211, 211);
   border-radius: 0.5em;
   width: 100%;
   max-width: 500px;
@@ -18,11 +18,11 @@
 }
 
 .TodoItem--isImportant {
-  border: 1.5px solid rgb(23, 176, 226);
+  border: 2px solid rgb(23, 176, 226);
 }
 
 .TodoItem--isCompleted {
-  border: 1.5px solid rgb(43, 164, 37);
+  border: 2px solid rgb(43, 164, 37);
 }
 
 /* INPUT */
@@ -62,24 +62,24 @@ input {
 
 .TodoItem__checkBox {
   margin-right: 10px;
-  border: 1.5px solid rgb(211, 211, 211);
+  border: 2px solid rgb(211, 211, 211);
 }
 
 .TodoItem__checkBox:hover {
-  border: 1.5px solid rgb(43, 164, 37);
+  border: 2px solid rgb(43, 164, 37);
 }
 
 .TodoItem--isImportant .TodoItem__checkBox {
-  border: 1.5px solid rgb(23, 176, 226);
+  border: 2px solid rgb(23, 176, 226);
 }
 
 .TodoItem--isCompleted .TodoItem__checkBox {
   color: rgb(43, 164, 37);
-  border: 1.5px solid rgb(43, 164, 37);
+  border: 2px solid rgb(43, 164, 37);
 }
 
 .TodoItem--isCompleted .TodoItem__checkBox:hover {
-  border: 1.5px solid rgb(211, 211, 211);
+  border: 2px solid rgb(211, 211, 211);
   color: rgb(211, 211, 211);
 }
 
@@ -90,7 +90,7 @@ input {
 }
 
 .TodoItem__importantBtn:hover {
-  border: 1.5px solid rgb(23, 176, 226);
+  border: 2px solid rgb(23, 176, 226);
   color: rgb(23, 176, 226);
 }
 
@@ -99,7 +99,7 @@ input {
 }
 
 .TodoItem--isImportant .TodoItem__importantBtn:hover {
-  border: 1.5px solid rgb(211, 211, 211);
+  border: 2px solid rgb(211, 211, 211);
   color: rgb(211, 211, 211);
 }
 
@@ -110,7 +110,7 @@ input {
 }
 
 .TodoItem__removeBtn:hover {
-  border: 1.5px solid rgb(226, 73, 55);
+  border: 2px solid rgb(226, 73, 55);
   color: rgb(226, 73, 55);
 }
 
@@ -118,10 +118,10 @@ input {
 
 .AddNewTodo__addBtn {
   margin-left: 10px;
-  border: 1.5px solid rgb(211, 211, 211);
+  border: 2px solid rgb(211, 211, 211);
 }
 
 .AddNewTodo__addBtn:hover {
-  border: 1.5px solid rgb(43, 164, 37);
+  border: 2px solid rgb(43, 164, 37);
   color: rgb(43, 164, 37);
 }

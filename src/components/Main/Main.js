@@ -14,11 +14,11 @@ const Main = () => {
   useEffect(() => {
     const data = localStorage.getItem("my-todo-list");
     data && setTodos(JSON.parse(data)); // sets state if data from localstorage
-  }, []); // runs once
+  }, []); // som componentDidMount, kjører en gang
   
   useEffect(() => {
     localStorage.setItem("my-todo-list", JSON.stringify(todos));
-  });
+  }); // som componentDidUpdate
 
   const createTodoAtIndex = (i) => {
     const newTodos = [...todos];
