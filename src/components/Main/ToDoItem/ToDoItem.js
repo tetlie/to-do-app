@@ -25,14 +25,14 @@ const ToDoItem = (props) => {
 
       <li 
         className={`
-          todo 
-          ${todo.isCompleted && 'todo-is-completed'} 
-          ${todo.isImportant && 'todo-is-important'}
+          TodoItem 
+          ${todo.isCompleted && 'TodoItem--isCompleted'} 
+          ${todo.isImportant && 'TodoItem--isImportant'}
       `}>
 
         <div
           type="checkbox"
-          className={'checkbox'}
+          className={'TodoItem__checkBox'}
           onClick={() => props.toggleIsCompleted(i)}>
           {todo.isCompleted && (<span>✓</span>)}
         </div>
@@ -46,13 +46,13 @@ const ToDoItem = (props) => {
         />
 
         <div
-          className={'importantBtn'}
+          className={'TodoItem__importantBtn'}
           onClick={() => props.toggleIsImportant(i)}>
           <span>!</span>
         </div>
 
         <div
-          className={'removeBtn'}
+          className={'TodoItem__removeBtn'}
           onClick={() => props.removeTodoAtIndex(i)}>
           <span>✕</span>
         </div>

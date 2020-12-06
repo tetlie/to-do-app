@@ -72,10 +72,10 @@ const Main = () => {
         setInput={setInput}
         createTodoAtIndex={createTodoAtIndex}
       />
-      <form className="todo-section">
+      <form className="todoSection">
         <h2>📄Tasks</h2>
         <TaskStatus todos={todos} />
-        <ul className="todo-list">
+        <ul className="todoList">
           <ToDoItem
             todos={todos}
             setTodos={setTodos}

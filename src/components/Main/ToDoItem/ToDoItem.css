@@ -1,16 +1,6 @@
-.todo-list {
-  list-style: none;
-  padding: 2rem;
-  margin: 0;
-  line-height: 2rem;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+/* TO-DO ITEM */
 
-.todo {
+.TodoItem, .AddNewTodo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,6 +13,20 @@
   transition: .2s ease-in-out;
 }
 
+.TodoItem:hover {
+  transform: scale(1.01);
+}
+
+.TodoItem--isImportant {
+  border: 1.5px solid rgb(23, 176, 226);
+}
+
+.TodoItem--isCompleted {
+  border: 1.5px solid rgb(43, 164, 37);
+}
+
+/* INPUT */
+
 input {
   border: none;
   background: transparent;
@@ -32,27 +36,17 @@ input {
   width: 100%;
 }
 
-.todo:hover {
-  transform: scale(1.01);
-}
-
-.todo-is-important {
-  border: 1.5px solid rgb(23, 176, 226);
-}
-
-.todo-is-important input {
+.TodoItem--isImportant input {
   color: rgb(23, 176, 226);
 }
 
-.todo-is-completed {
-  border: 1.5px solid rgb(43, 164, 37);
-}
-
-.todo-is-completed input {
+.TodoItem--isCompleted input {
   color: rgb(43, 164, 37);
 }
 
-.checkbox, .removeBtn, .addBtn, .importantBtn {
+/* BUTTONS */
+
+.TodoItem__checkBox, .TodoItem__removeBtn, .TodoItem__importantBtn, .AddNewTodo__addBtn {
   width: 1em;
   height: 1em;
   font-size: 1em;
@@ -64,62 +58,70 @@ input {
   align-items: center;
 }
 
-.checkbox {
+/* CHECKBOX */
+
+.TodoItem__checkBox {
   margin-right: 10px;
   border: 1.5px solid rgb(211, 211, 211);
 }
 
-.todo-is-important .checkbox {
-  border: 1.5px solid rgb(23, 176, 226);
-}
-
-.checkbox:hover {
+.TodoItem__checkBox:hover {
   border: 1.5px solid rgb(43, 164, 37);
 }
 
-.todo-is-completed .checkbox {
+.TodoItem--isImportant .TodoItem__checkBox {
+  border: 1.5px solid rgb(23, 176, 226);
+}
+
+.TodoItem--isCompleted .TodoItem__checkBox {
   color: rgb(43, 164, 37);
   border: 1.5px solid rgb(43, 164, 37);
 }
 
-.todo-is-completed .checkbox:hover {
+.TodoItem--isCompleted .TodoItem__checkBox:hover {
   border: 1.5px solid rgb(211, 211, 211);
   color: rgb(211, 211, 211);
 }
 
-.addBtn {
-  margin-left: 10px;
-  border: 1.5px solid rgb(211, 211, 211);
-}
+/* IMPORTANT-BUTTON */
 
-.importantBtn {
+.TodoItem__importantBtn {
   margin-left: 10px;
 }
 
-.importantBtn:hover {
+.TodoItem__importantBtn:hover {
   border: 1.5px solid rgb(23, 176, 226);
   color: rgb(23, 176, 226);
 }
 
-.todo-is-important .importantBtn {
+.TodoItem--isImportant .TodoItem__importantBtn {
   color: rgb(23, 176, 226);
 }
 
-.todo-is-important .importantBtn:hover {
+.TodoItem--isImportant .TodoItem__importantBtn:hover {
   border: 1.5px solid rgb(211, 211, 211);
   color: rgb(211, 211, 211);
 }
 
-.removeBtn {
+/* REMOVE-BUTTON */
+
+.TodoItem__removeBtn {
   margin-left: 10px;
 }
 
-.removeBtn:hover {
+.TodoItem__removeBtn:hover {
   border: 1.5px solid rgb(226, 73, 55);
   color: rgb(226, 73, 55);
 }
 
-.addBtn:hover {
+/* ADD-NEW-BUTTON */
+
+.AddNewTodo__addBtn {
+  margin-left: 10px;
+  border: 1.5px solid rgb(211, 211, 211);
+}
+
+.AddNewTodo__addBtn:hover {
   border: 1.5px solid rgb(43, 164, 37);
   color: rgb(43, 164, 37);
 }
