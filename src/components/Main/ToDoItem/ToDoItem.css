@@ -1,6 +1,6 @@
 .todo-list {
   list-style: none;
-  padding: 0;
+  padding: 2rem;
   margin: 0;
   line-height: 2rem;
   width: 100vw;
@@ -10,122 +10,116 @@
   justify-content: center;
 }
 
-
 .todo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
-    padding: 0.5em;
-    border: 1.5px solid rgb(211, 211, 211);
-    border-radius: 0.5em;
-    width: 100%;
-    max-width: 500px;
-    transition: .2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  padding: 0.5em;
+  border: 1.5px solid rgb(211, 211, 211);
+  border-radius: 0.5em;
+  width: 100%;
+  max-width: 500px;
+  transition: .2s ease-in-out;
+}
 
-  }
+input {
+  border: none;
+  background: transparent;
+  color: rgb(211, 211, 211);
+  font-size: 2rem;
+  outline: none;
+  width: 100%;
+}
 
+.todo:hover {
+  transform: scale(1.01);
+}
 
-  input {
-    border: none;
-    background: transparent;
-    color: rgb(211, 211, 211);
-    font-size: 2rem;
-    outline: none;
-    width: 100%;
-  }
+.todo-is-important {
+  border: 1.5px solid rgb(23, 176, 226);
+}
 
-  .todo:hover {
-    transform: scale(1.01);
-  }
+.todo-is-important input {
+  color: rgb(23, 176, 226);
+}
 
-  .todo-is-important {
-    border: 1.5px solid rgb(23, 176, 226);
-  }
+.todo-is-completed {
+  border: 1.5px solid rgb(43, 164, 37);
+}
 
-  .todo-is-important input {
-    color:rgb(23, 176, 226);
-  }
+.todo-is-completed input {
+  color: rgb(43, 164, 37);
+}
 
-  .todo-is-completed {
-    border: 1.5px solid rgb(43, 164, 37);
-  }
-  
+.checkbox, .removeBtn, .addBtn, .importantBtn {
+  width: 1em;
+  height: 1em;
+  font-size: 1em;
+  padding: 0.55em;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .todo-is-completed input {
-    color:rgb(43, 164, 37);
-  }
-  
-  .checkbox, .removeBtn, .addBtn, .importantBtn {
-    width: 1em;
-    height: 1em;
-    font-size: 1em;
-    padding: 0.55em;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.checkbox {
+  margin-right: 10px;
+  border: 1.5px solid rgb(211, 211, 211);
+}
 
-  .checkbox {
-    margin-right: 10px;
-    border: 1.5px solid rgb(211, 211, 211);
-  }
+.todo-is-important .checkbox {
+  border: 1.5px solid rgb(23, 176, 226);
+}
 
-  .todo-is-important .checkbox {
-    border: 1.5px solid rgb(23, 176, 226);
-  }
+.checkbox:hover {
+  border: 1.5px solid rgb(43, 164, 37);
+}
 
-  .checkbox:hover {
-    border: 1.5px solid rgb(43, 164, 37);
-  }
+.todo-is-completed .checkbox {
+  color: rgb(43, 164, 37);
+  border: 1.5px solid rgb(43, 164, 37);
+}
 
-  .todo-is-completed .checkbox {
-    color: rgb(43, 164, 37);
-    border: 1.5px solid rgb(43, 164, 37);
-  }
+.todo-is-completed .checkbox:hover {
+  border: 1.5px solid rgb(211, 211, 211);
+  color: rgb(211, 211, 211);
+}
 
-  .todo-is-completed .checkbox:hover {
-    border: 1.5px solid rgb(211, 211, 211);
-    color: rgb(211, 211, 211); 
-  }
+.addBtn {
+  margin-left: 10px;
+  border: 1.5px solid rgb(211, 211, 211);
+}
 
-  .addBtn {
-    margin-left: 10px;
-    border: 1.5px solid rgb(211, 211, 211);
-  }
+.importantBtn {
+  margin-left: 10px;
+}
 
-  .importantBtn {
-    margin-left: 10px;
-  }
-  
-  .importantBtn:hover {
-    border: 1.5px solid rgb(23, 176, 226);
-    color: rgb(23, 176, 226);
-  }
+.importantBtn:hover {
+  border: 1.5px solid rgb(23, 176, 226);
+  color: rgb(23, 176, 226);
+}
 
-  .todo-is-important .importantBtn {
-    color: rgb(23, 176, 226);
-  }
+.todo-is-important .importantBtn {
+  color: rgb(23, 176, 226);
+}
 
-  .todo-is-important .importantBtn:hover {
-    border: 1.5px solid  rgb(211, 211, 211);
-    color:  rgb(211, 211, 211);
-  }
+.todo-is-important .importantBtn:hover {
+  border: 1.5px solid rgb(211, 211, 211);
+  color: rgb(211, 211, 211);
+}
 
-  .removeBtn {
-    margin-left: 10px;
-    font-size:
-  }
-  
-  .removeBtn:hover {
-    border: 1.5px solid rgb(226, 73, 55);
-    color: rgb(226, 73, 55);
-  }
+.removeBtn {
+  margin-left: 10px;
+}
 
-  .addBtn:hover {
-    border: 1.5px solid rgb(43, 164, 37);
-    color: rgb(43, 164, 37);
-  }
-  
+.removeBtn:hover {
+  border: 1.5px solid rgb(226, 73, 55);
+  color: rgb(226, 73, 55);
+}
+
+.addBtn:hover {
+  border: 1.5px solid rgb(43, 164, 37);
+  color: rgb(43, 164, 37);
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './Main.css';
 
@@ -11,47 +11,60 @@ const Main = () => {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState([]);
 
-  const createTodoAtIndex = (i = 0) => {
+  useEffect(() => {
+    const data = localStorage.getItem("my-todo-list");
+    data && setTodos(JSON.parse(data)); // sets state if data from localstorage
+  }, []); // runs once
+  
+  useEffect(() => {
+    localStorage.setItem("my-todo-list", JSON.stringify(todos));
+  });
+
+  const createTodoAtIndex = (i) => {
     const newTodos = [...todos];
+    // const isImportantNumber = !todos[i].isImportant ? todos.filter(todo => todo.isImportant === true).length : null;
+    // newTodos.splice(i + isImportantNumber + 1, 0, {
     newTodos.splice(i + 1, 0, {
-      content: input ? input : '',
+      content: input ? input : '', // om det er innhold i input-feltet legges dette inn. ellers er den tom
       isCompleted: false,
       isImportant: false,
     });
     setTodos(newTodos);
     setInput('');
-  }
+  };
 
   const removeTodoAtIndex = (i) => {
-    setTodos(todos => todos.slice(0, i).concat(todos.slice(i + 1, todos.length)));
+    const newTodos = [...todos];
+    newTodos.splice(i, 1);
+    setTodos(newTodos);
   }
 
   const updateTodoAtIndex = (e, i) => {
     const newTodos = [...todos];
-    newTodos[i].content = e.target.value;
+    newTodos[i].content = e.target.value; // endre innhold i todo-item ved å redigere teksten
+    setTodos(newTodos);
+  }
+
+  const toggleIsCompleted = (i) => {
+    const newTodos = [...todos];
+    newTodos[i].isCompleted = !newTodos[i].isCompleted;
+    if (newTodos[i].isCompleted) {
+      newTodos.push(newTodos.splice(i, 1)[0]) // todo-item sendes til slutten av arrayet
+    };
     setTodos(newTodos);
   }
 
   const toggleIsImportant = (i) => {
-    const temporaryTodos = [...todos];
-    temporaryTodos[i].isImportant = !temporaryTodos[i].isImportant;
-    if (temporaryTodos[i].isImportant && !temporaryTodos[i].isCompleted) {
-        temporaryTodos.unshift(temporaryTodos.splice(i, 1)[0])
+    const newTodos = [...todos];
+    newTodos[i].isImportant = !newTodos[i].isImportant;
+    if (newTodos[i].isImportant && !newTodos[i].isCompleted) {
+      newTodos.unshift(newTodos.splice(i, 1)[0]) // todo-item sendes til slutten av arrayet
     };
-    setTodos(temporaryTodos);
-  }
-
-  const toggleIsCompleted = (i) => {
-    const temporaryTodos = [...todos];
-    temporaryTodos[i].isCompleted = !temporaryTodos[i].isCompleted;
-    if (temporaryTodos[i].isCompleted) {
-        temporaryTodos.push(temporaryTodos.splice(i, 1)[0])
-    };
-    setTodos(temporaryTodos);
+    setTodos(newTodos);
   }
 
   return (
-    <div className="Main">
+    <main className="Main">
       <AddNewTodo
         todos={todos}
         setTodos={setTodos}
@@ -74,7 +87,7 @@ const Main = () => {
           />
         </ul>
       </form>
-    </div>
+    </main>
   );
 }
 
