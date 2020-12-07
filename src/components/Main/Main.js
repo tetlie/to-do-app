@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import './Main.css';
 
@@ -12,19 +13,18 @@ const Main = () => {
   const [input, setInput] = useState([]);
 
   useEffect(() => {
-    const data = localStorage.getItem("my-todo-list");
+    const data = localStorage.getItem("todo-list");
     data && setTodos(JSON.parse(data)); // sets state if data from localstorage
-  }, []); // som componentDidMount, kjører en gang
+  }, []);
   
   useEffect(() => {
-    localStorage.setItem("my-todo-list", JSON.stringify(todos));
-  }); // som componentDidUpdate
+    localStorage.setItem("todo-list", JSON.stringify(todos));
+  }, [todos]);
 
   const createTodoAtIndex = (i) => {
     const newTodos = [...todos];
-    // const isImportantNumber = !todos[i].isImportant ? todos.filter(todo => todo.isImportant === true).length : null;
-    // newTodos.splice(i + isImportantNumber + 1, 0, {
     newTodos.splice(i + 1, 0, {
+      key: uuidv4(),
       content: input ? input : '', // om det er innhold i input-feltet legges dette inn. ellers er den tom
       isCompleted: false,
       isImportant: false,
@@ -86,6 +86,7 @@ const Main = () => {
             handleTodoIsImportant={handleTodoIsImportant}
           />
         </ul>
+        {/* flytt til egen komponent */}
         {(todos.length > 0) && <div onClick={ ()=> setTodos([]) }><span>Clear all</span></div>}
       </form>
     </main>

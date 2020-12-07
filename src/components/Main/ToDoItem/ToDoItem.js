@@ -25,6 +25,7 @@ const ToDoItem = (props) => {
     props.todos.map((todo, i) => (
 
       <li 
+        key={todo.key}
         className={`
           TodoItem 
           ${todo.isCompleted && 'TodoItem--isCompleted'} 
