@@ -12,7 +12,7 @@ const ToDoItem = (props) => {
       }, 0);
 
     } if (e.key === 'Backspace' && props.todos[i].content === '') {
-      props.removeTodoAtIndex(i);
+      props.handleTodoIsDeleted(i);
       setTimeout(() => { // flytt fokus til linjen over
         if (props.todos.length > 1) { // om det er flere enn ett item
           (i === 0) ? document.forms[0].elements[i].focus() : document.forms[0].elements[i - 1].focus()
@@ -34,7 +34,7 @@ const ToDoItem = (props) => {
         <div
           type="checkbox"
           className={'TodoItem__checkBox'}
-          onClick={() => props.toggleIsCompleted(i)}>
+          onClick={() => props.handleTodoIsChecked(i)}>
           {todo.isCompleted && (<span>✓</span>)}
         </div>
 
@@ -42,19 +42,19 @@ const ToDoItem = (props) => {
           type="text"
           placeholder="new to-do"
           value={todo.content} // double-bind to state
-          onChange={e => props.updateTodoAtIndex(e, i)} // double-bind to state
+          onChange={e => props.handleTodoIsChanged(e, i)} // double-bind to state
           onKeyDown={e => handleKeyDown(e, i)}
         />
 
         <div
           className={'TodoItem__importantBtn'}
-          onClick={() => props.toggleIsImportant(i)}>
+          onClick={() => props.handleTodoIsImportant(i)}>
           <span>!</span>
         </div>
 
         <div
           className={'TodoItem__removeBtn'}
-          onClick={() => props.removeTodoAtIndex(i)}>
+          onClick={() => props.handleTodoIsDeleted(i)}>
           <span>✕</span>
         </div>
 

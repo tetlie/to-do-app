@@ -33,19 +33,19 @@ const Main = () => {
     setInput('');
   };
 
-  const removeTodoAtIndex = (i) => {
+  const handleTodoIsDeleted = (i) => {
     const newTodos = [...todos];
     newTodos.splice(i, 1);
     setTodos(newTodos);
   }
 
-  const updateTodoAtIndex = (e, i) => {
+  const handleTodoIsChanged = (e, i) => {
     const newTodos = [...todos];
     newTodos[i].content = e.target.value; // endre innhold i todo-item ved å redigere teksten
     setTodos(newTodos);
   }
 
-  const toggleIsCompleted = (i) => {
+  const handleTodoIsChecked = (i) => {
     const newTodos = [...todos];
     newTodos[i].isCompleted = !newTodos[i].isCompleted;
     if (newTodos[i].isCompleted) {
@@ -54,7 +54,7 @@ const Main = () => {
     setTodos(newTodos);
   }
 
-  const toggleIsImportant = (i) => {
+  const handleTodoIsImportant = (i) => {
     const newTodos = [...todos];
     newTodos[i].isImportant = !newTodos[i].isImportant;
     if (newTodos[i].isImportant && !newTodos[i].isCompleted) {
@@ -80,12 +80,13 @@ const Main = () => {
             todos={todos}
             setTodos={setTodos}
             createTodoAtIndex={createTodoAtIndex}
-            removeTodoAtIndex={removeTodoAtIndex}
-            updateTodoAtIndex={updateTodoAtIndex}
-            toggleIsCompleted={toggleIsCompleted}
-            toggleIsImportant={toggleIsImportant}
+            handleTodoIsDeleted={handleTodoIsDeleted}
+            handleTodoIsChanged={handleTodoIsChanged}
+            handleTodoIsChecked={handleTodoIsChecked}
+            handleTodoIsImportant={handleTodoIsImportant}
           />
         </ul>
+        {(todos.length > 0) && <div onClick={ ()=> setTodos([]) }><span>Clear all</span></div>}
       </form>
     </main>
   );

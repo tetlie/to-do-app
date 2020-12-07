@@ -12,6 +12,7 @@ const TaskStatus = (props) => {
       <div>{(allCompleted) ?  `All caught up 🔥` : `Pending: ${pending.length}`}</div>
       <div>Completed: {completed.length}</div>
     </div>
+
   )
 }
 
