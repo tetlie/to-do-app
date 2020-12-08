@@ -6,6 +6,7 @@ import './Main.css';
 import ToDoItem from './ToDoItem/ToDoItem'
 import AddNewTodo from './AddNewTodo/AddNewTodo'
 import TaskStatus from './TaskStatus/TaskStatus'
+import ClearAllTodosButton from './ClearAllTodosButton/ClearAllTodosButton'
 
 const Main = () => {
 
@@ -65,14 +66,16 @@ const Main = () => {
 
   return (
     <main className="Main">
-      <AddNewTodo
-        todos={todos}
-        setTodos={setTodos}
-        input={input}
-        setInput={setInput}
-        createTodoAtIndex={createTodoAtIndex}
-      />
-      <form className="todoSection">
+      <div className="newTodoSection">
+        <AddNewTodo
+          todos={todos}
+          setTodos={setTodos}
+          input={input}
+          setInput={setInput}
+          createTodoAtIndex={createTodoAtIndex}
+        />
+      </div>
+      <form className="todoListSection">
         <h2>📄Tasks</h2>
         <TaskStatus todos={todos} />
         <ul className="todoList">
@@ -87,8 +90,14 @@ const Main = () => {
           />
         </ul>
         {/* flytt til egen komponent */}
-        {(todos.length > 0) && <div onClick={ ()=> setTodos([]) }><span>Clear all</span></div>}
       </form>
+
+      <ClearAllTodosButton 
+        todos={todos}
+        setTodos={setTodos}
+      />
+
+
     </main>
   );
 }

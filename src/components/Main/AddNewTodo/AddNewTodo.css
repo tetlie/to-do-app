@@ -9,7 +9,6 @@
   border: 2px solid rgb(211, 211, 211);
   border-radius: 0.5em;
   width: 100%;
-  min-width: 330px;
   max-width: 500px;
   transition: .2s ease-in-out;
 }

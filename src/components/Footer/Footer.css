@@ -1,12 +1,21 @@
 .Footer {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    color: rgb(110, 110, 110);
+    align-items: center;
+    justify-content: center;
+    color: rgb(155, 155, 155);
     margin: 2rem;
     bottom: 0;
     height: 30vh;
+  }
+
+  .Footer article {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
   }
 
 a {

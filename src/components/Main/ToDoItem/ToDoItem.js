@@ -32,12 +32,12 @@ const ToDoItem = (props) => {
           ${todo.isImportant && 'TodoItem--isImportant'}
       `}>
 
-        <div
+        <checkbox
           type="checkbox"
           className={'TodoItem__checkBox'}
           onClick={() => props.handleTodoIsChecked(i)}>
-          {todo.isCompleted && (<span>✓</span>)}
-        </div>
+            {todo.isCompleted && (<span>✓</span>)}
+        </checkbox>
 
         <input
           type="text"
@@ -47,17 +47,17 @@ const ToDoItem = (props) => {
           onKeyDown={e => handleKeyDown(e, i)}
         />
 
-        <div
+        <checkbox
           className={'TodoItem__importantBtn'}
           onClick={() => props.handleTodoIsImportant(i)}>
           <span>!</span>
-        </div>
+        </checkbox>
 
-        <div
+        <checkbox
           className={'TodoItem__removeBtn'}
           onClick={() => props.handleTodoIsDeleted(i)}>
-          <span>✕</span>
-        </div>
+            <span>✕</span>
+        </checkbox>
 
       </li>
     ))
