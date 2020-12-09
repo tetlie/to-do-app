@@ -44,10 +44,12 @@ input {
 
 .TodoItem--isImportant input {
   color: rgb(23, 176, 226);
+  text-decoration: underline;
 }
 
 .TodoItem--isCompleted input {
   color: rgb(43, 164, 37);
+  text-decoration: line-through;
 }
 
 /* BUTTONS */
@@ -115,13 +117,20 @@ button {
   color: rgb(23, 176, 226);
 }
 
+
 .TodoItem--isImportant .TodoItem__importantBtn {
   color: rgb(23, 176, 226);
+  border: 2px solid rgb(23, 176, 226);
 }
 
 .TodoItem--isImportant .TodoItem__importantBtn:hover {
   border: 2px solid rgb(211, 211, 211);
   color: rgb(211, 211, 211);
+}
+
+.TodoItem--isCompleted .TodoItem__importantBtn {
+  color: rgb(43, 164, 37);
+  border: 2px solid rgb(43, 164, 37);
 }
 
 /* REMOVE-BUTTON */

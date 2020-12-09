@@ -66,7 +66,7 @@ const Main = () => {
 
   return (
     <main className="Main">
-      <div className="newTodoSection">
+      <div className="newTodoSection" role="form" name="add-new-todo">
         <AddNewTodo
           todos={todos}
           setTodos={setTodos}
@@ -75,7 +75,7 @@ const Main = () => {
           createTodoAtIndex={createTodoAtIndex}
         />
       </div>
-      <form className="todoListSection">
+      <form className="todoListSection" name="todo-list">
         <h2>📄Tasks</h2>
         <TaskStatus todos={todos} />
         <ul className="todoList">

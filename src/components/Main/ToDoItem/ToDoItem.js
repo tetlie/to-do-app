@@ -33,13 +33,16 @@ const ToDoItem = (props) => {
       `}>
 
         <checkbox
+        title="important"
+          tabindex="0"
           type="checkbox"
-          className={'TodoItem__checkBox'}
+          className='TodoItem__checkBox'
           onClick={() => props.handleTodoIsChecked(i)}>
             {todo.isCompleted && (<span>✓</span>)}
         </checkbox>
 
         <input
+          title="important"
           type="text"
           placeholder="new to-do"
           value={todo.content} // double-bind to state
@@ -48,16 +51,20 @@ const ToDoItem = (props) => {
         />
 
         <checkbox
-          className={'TodoItem__importantBtn'}
+          title="important"
+          tabindex="0"
+          className='TodoItem__importantBtn'
           onClick={() => props.handleTodoIsImportant(i)}>
           <span>!</span>
         </checkbox>
 
-        <checkbox
-          className={'TodoItem__removeBtn'}
+        <div
+          tabindex="0"
+          role="button"
+          className='TodoItem__removeBtn'
           onClick={() => props.handleTodoIsDeleted(i)}>
             <span>✕</span>
-        </checkbox>
+        </div>
 
       </li>
     ))

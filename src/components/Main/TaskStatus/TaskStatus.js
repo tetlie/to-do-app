@@ -1,18 +1,31 @@
 import React from 'react';
-import './TaskStatus.css'
+import styled from 'styled-components';
 
 const TaskStatus = (props) => {
 
-  const pending = props.todos.filter(todo => todo.isCompleted === !true) // nytt array med alle ikke-completed items
-  const completed = props.todos.filter(todo => todo.isCompleted === true) // nytt array med alle completed items
-  const allCompleted = pending.length === 0; // boolean
+  const pendingTodos = props.todos.filter(todo => todo.isCompleted === !true) // nytt array med alle ikke-completed items
+  const completedTodos = props.todos.filter(todo => todo.isCompleted === true) // nytt array med alle completed items
+  const allCompleted = pendingTodos.length === 0;
+
+  const Statusbar = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1rem;
+    padding: 0.5em;
+    border: 2px solid ${!allCompleted ? "rgb(226, 73, 55)" : "rgb(43, 164, 37)"}; 
+    border-radius: 0.5em;
+    width: 100%;
+    min-width: 330px;
+    max-width: 500px;
+  `;
 
   return (
-    <div className={`TaskStatus ${(allCompleted) && 'TaskStatus--isCompleted'}`}>
-      <div>{(allCompleted) ?  `All caught up 🔥` : `Pending: ${pending.length}`}</div>
-      <div>Completed: {completed.length}</div>
-    </div>
-
+    <Statusbar>
+      <div>{(allCompleted) ?  `All caught up 🔥` : `Pending: ${pendingTodos.length}`}</div>
+      <div>Completed: {completedTodos.length}</div>
+    </Statusbar>
   )
 }
 

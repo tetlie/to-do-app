@@ -1,11 +1,11 @@
 import React from 'react';
-import './AddNewTodo.css'
 
 const AddNewTodo = (props) => {
-
   return (
     <div className="AddNewTodo">
       <input
+        title="important"
+        for="add-new-todo"
         placeholder="add new to-do"
         value={props.input}
           type="text"
@@ -13,6 +13,8 @@ const AddNewTodo = (props) => {
           onChange={e => props.setInput(e.target.value)}
       />
       <button
+        type="submit"
+        tabindex="0"
         className={'AddNewTodo__addBtn'}
         onClick={props.input ? props.createTodoAtIndex : null}>
           <span>＋</span>
@@ -20,5 +22,4 @@ const AddNewTodo = (props) => {
     </div>
     )
 }
-
 export default AddNewTodo
