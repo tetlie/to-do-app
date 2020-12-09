@@ -5,7 +5,9 @@ const TaskStatus = (props) => {
 
   const pendingTodos = props.todos.filter(todo => todo.isCompleted === !true) // nytt array med alle ikke-completed items
   const completedTodos = props.todos.filter(todo => todo.isCompleted === true) // nytt array med alle completed items
-  const allCompleted = pendingTodos.length === 0;
+  const allCompleted = pendingTodos.length === 0; // sann om alle gjøremål er markert som ferdig
+
+  // test av styled components
 
   const Statusbar = styled.div`
     display: flex;

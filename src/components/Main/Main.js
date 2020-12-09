@@ -15,23 +15,23 @@ const Main = () => {
 
   useEffect(() => {
     const data = localStorage.getItem("todo-list");
-    data && setTodos(JSON.parse(data)); // sets state if data from localstorage
+    data && setTodos(JSON.parse(data)); // om det er data i localstorage, settes todos-arrayet i state med denne dataen
   }, []);
   
   useEffect(() => {
     localStorage.setItem("todo-list", JSON.stringify(todos));
-  }, [todos]);
+  }, [todos]); // oppdaterer localStorage når det skjer endringer i state
 
   const createTodoAtIndex = (i) => {
-    const newTodos = [...todos];
-    newTodos.splice(i + 1, 0, {
-      key: uuidv4(),
-      content: input ? input : '', // om det er innhold i input-feltet legges dette inn. ellers er den tom
-      isCompleted: false,
-      isImportant: false,
+    const newTodos = [...todos]; // opprett et midlertidig array, en kopi av state
+    newTodos.splice(i + 1, 0, { // sett inn et nytt objekt på den aktuelle indeksen
+      key: uuidv4(), // et generert nummer, fra det importerte biblioteket uuidv4 ("universally unique identifier")
+      content: input ? input : '', // om det er innhold i input-feltet legges dette inn. ellers er dett en tom streng
+      isCompleted: false, // er gjøremålet markert som ferdig?
+      isImportant: false, // er gjøremålet markert som vitkig?
     });
-    setTodos(newTodos);
-    setInput('');
+    setTodos(newTodos); // sender det midlertidige arrayet inn og erstatter state
+    setInput(''); // input-feltet i toppen av siden tømmes
   };
 
   const handleTodoIsDeleted = (i) => {
@@ -42,25 +42,21 @@ const Main = () => {
 
   const handleTodoIsChanged = (e, i) => {
     const newTodos = [...todos];
-    newTodos[i].content = e.target.value; // endre innhold i todo-item ved å redigere teksten
+    newTodos[i].content = e.target.value; // endre innhold i todo-item ved å redigere input-feltene
     setTodos(newTodos);
   }
 
   const handleTodoIsChecked = (i) => {
     const newTodos = [...todos];
-    newTodos[i].isCompleted = !newTodos[i].isCompleted;
-    if (newTodos[i].isCompleted) {
-      newTodos.push(newTodos.splice(i, 1)[0]) // todo-item sendes til slutten av arrayet
-    };
+    newTodos[i].isCompleted = !newTodos[i].isCompleted; // toggle isCompleted
+    newTodos[i].isCompleted && newTodos.push(newTodos.splice(i, 1)[0]) // todo-item sendes til slutten av arrayet
     setTodos(newTodos);
   }
 
   const handleTodoIsImportant = (i) => {
     const newTodos = [...todos];
-    newTodos[i].isImportant = !newTodos[i].isImportant;
-    if (newTodos[i].isImportant && !newTodos[i].isCompleted) {
-      newTodos.unshift(newTodos.splice(i, 1)[0]) // todo-item sendes til slutten av arrayet
-    };
+    newTodos[i].isImportant = !newTodos[i].isImportant; // toggle isImportant
+    (newTodos[i].isImportant && !newTodos[i].isCompleted) && newTodos.unshift(newTodos.splice(i, 1)[0]) // todo-item sendes til starten av arrayet
     setTodos(newTodos);
   }
 
@@ -89,15 +85,11 @@ const Main = () => {
             handleTodoIsImportant={handleTodoIsImportant}
           />
         </ul>
-        {/* flytt til egen komponent */}
       </form>
-
       <ClearAllTodosButton 
         todos={todos}
         setTodos={setTodos}
       />
-
-
     </main>
   );
 }
