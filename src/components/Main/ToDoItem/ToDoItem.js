@@ -32,18 +32,19 @@ const ToDoItem = (props) => {
         <checkbox
           title="Mark as completed"
           tabindex="0"
-          type="checkbox"
           className='TodoItem__checkBox'
-          onClick={() => props.handleTodoIsChecked(i)}>
-            {todo.isCompleted && (<span>✓</span>)} 
+          onClick={() => props.handleTodoIsChecked(i)}
+          onKeyDown={(e) => (e.key === 'Enter') && props.handleTodoIsChecked(i)} // brukere kan bruke tastaturet for å merke gjøremålet
+        >
+          {todo.isCompleted && (<span>✓</span>)} 
         </checkbox>
 
         <input
-          title="Text for item"
+          title="Text for to-do-item"
           type="text"
           placeholder="new to-do"
-          value={todo.content} // dobbel-bind input til state
-          onChange={e => props.handleTodoIsChanged(e, i)} // dobbel-bind input til state
+          value={todo.content}
+          onChange={e => props.handleTodoIsChanged(e, i)}
           onKeyDown={e => handleKeyDown(e, i)}
         />
 
@@ -51,8 +52,10 @@ const ToDoItem = (props) => {
           title="Mark as important"
           tabindex="0"
           className='TodoItem__importantBtn'
-          onClick={() => props.handleTodoIsImportant(i)}>
-            <span>!</span>
+          onClick={() => props.handleTodoIsImportant(i)}
+          onKeyDown={(e) => (e.key === 'Enter') && props.handleTodoIsImportant(i)} // brukere kan bruke tastaturet for å merke gjøremålet
+        >
+          <span>!</span>
         </checkbox>
 
         <div
@@ -60,8 +63,10 @@ const ToDoItem = (props) => {
           tabindex="0"
           role="button"
           className='TodoItem__removeBtn'
-          onClick={() => props.handleTodoIsDeleted(i)}>
-            <span>✕</span>
+          onClick={() => props.handleTodoIsDeleted(i)}
+          onKeyDown={(e) => (e.key === 'Enter') && props.handleTodoIsDeleted(i)} // brukere kan bruke tastaturet for å slette gjøremålet
+        >
+          <span>✕</span>
         </div>
 
       </li>
