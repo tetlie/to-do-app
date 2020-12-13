@@ -130,7 +130,7 @@ button {
 
 .TodoItem--isCompleted .TodoItem__importantBtn {
   color: rgb(43, 164, 37);
-  border: 2px solid rgb(43, 164, 37);
+  /* border: 2px solid rgb(43, 164, 37); */
 }
 
 /* REMOVE-BUTTON */
