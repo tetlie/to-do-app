@@ -22,16 +22,15 @@ const Main = () => {
   }, [todos]);
 
   const createTodoAtIndex = (i) => {
-    const newTodos = [...todos]; // opprett et midlertidig array, en kopi av state
+    const newTodos = [...todos];
     newTodos.splice(i + 1, 0, {
-      // sett inn et nytt objekt på den aktuelle indeksen
-      key: uuidv4(), // et generert nummer, fra det importerte biblioteket uuidv4 ("universally unique identifier")
-      content: input ? input : "", // om det er innhold i input-feltet legges dette inn. ellers er dett en tom streng
-      isCompleted: false, // er gjøremålet markert som ferdig?
-      isImportant: false, // er gjøremålet markert som vitkig?
+      key: uuidv4(),
+      content: input ? input : "",
+      isCompleted: false,
+      isImportant: false,
     });
-    setTodos(newTodos); // sender det midlertidige arrayet inn og erstatter state
-    setInput(""); // input-feltet i toppen av siden tømmes
+    setTodos(newTodos);
+    setInput("");
   };
 
   const handleTodoIsDeleted = (i) => {
@@ -42,23 +41,23 @@ const Main = () => {
 
   const handleTodoIsChanged = (e, i) => {
     const newTodos = [...todos];
-    newTodos[i].content = e.target.value; // endre innhold i todo-item ved å redigere input-feltene
+    newTodos[i].content = e.target.value;
     setTodos(newTodos);
   };
 
   const handleTodoIsChecked = (i) => {
     const newTodos = [...todos];
-    newTodos[i].isCompleted = !newTodos[i].isCompleted; // toggle isCompleted
-    newTodos[i].isCompleted && newTodos.push(newTodos.splice(i, 1)[0]); // todo-item sendes til slutten av arrayet
+    newTodos[i].isCompleted = !newTodos[i].isCompleted;
+    newTodos[i].isCompleted && newTodos.push(newTodos.splice(i, 1)[0]);
     setTodos(newTodos);
   };
 
   const handleTodoIsImportant = (i) => {
     const newTodos = [...todos];
-    newTodos[i].isImportant = !newTodos[i].isImportant; // toggle isImportant
+    newTodos[i].isImportant = !newTodos[i].isImportant;
     newTodos[i].isImportant &&
       !newTodos[i].isCompleted &&
-      newTodos.unshift(newTodos.splice(i, 1)[0]); // todo-item sendes til starten av arrayet
+      newTodos.unshift(newTodos.splice(i, 1)[0]);
     setTodos(newTodos);
   };
 

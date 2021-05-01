@@ -1,16 +1,15 @@
-import React from 'react'
-import './ClearAllTodosButton.css'
+import "./ClearAllTodosButton.css";
+
+import React from "react";
 
 const ClearAllTodosButton = (props) => {
-
-  const handleClearAll = () => props.setTodos([]); // erstatt todo-array i state med et tomt array
+  const handleClearAll = () => props.setTodos([]);
 
   return (
-    <button className="ClearAllTodosButton" onClick={ () => handleClearAll() }>
-        <span>Clear all</span>
+    <button className="ClearAllTodosButton" onClick={() => handleClearAll()}>
+      <span>Clear all</span>
     </button>
   );
-
 };
 
-export default ClearAllTodosButton
+export default ClearAllTodosButton;

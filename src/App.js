@@ -1,12 +1,11 @@
-import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
-import Header from './components/Header/Header'
-import Main from './components/Main/Main'
-import Footer from './components/Footer/Footer'
+import "./App.css";
+
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import React from "react";
 
 function App() {
-
   return (
     <div className="App">
       <Header />
